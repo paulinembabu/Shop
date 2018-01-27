@@ -1,0 +1,156 @@
+<div class="col-sm-4 col-md-4 col-lg-3 wow fadeInUp animated"
+     style="visibility: visible; animation-name: fadeInUp;" [ngClass]="{'col-lg-4': resize, 'col-lg-4': !resize}">
+    <div class="products">
+        <div class="product">
+            <div class="product-image">
+                <div class="image"><a href=""><img
+                        src="{{ product.image_url }}" alt=""></a></div>
+                <!-- /.image -->
+
+                <div class="tag hot" *ngIf="outOfStock()"><span>Out of stock</span></div>
+                <div class="tag hot" *ngIf="false"><span>hot</span></div>
+            </div>
+            <!-- /.product-image -->
+            <div style="margin-left: 26px">
+                <div class="product-info text-left">
+                    <h3 class="name"><a routerLink="products/1">{{ product.name }}</a>
+                    </h3>
+                    <div class="rating rateit-small rateit" *ngIf="false">
+                        <button id="rateit-reset-2" data-role="none"
+                                class="rateit-reset" aria-label="reset rating"
+                                aria-controls="rateit-range-2"
+                                style="display: none;"></button>
+                        <div id="rateit-range-2" class="rateit-range" tabindex="0"
+                             role="slider" aria-label="rating"
+                             aria-owns="rateit-reset-2" aria-valuemin="0"
+                             aria-valuemax="5" aria-valuenow="4" aria-readonly="true"
+                             style="width: 70px; height: 14px;">
+                            <div class="rateit-selected"
+                                 style="height: 14px; width: 56px;"></div>
+                            <div class="rateit-hover" style="height:14px"></div>
+                        </div>
+                    </div>
+                    <div class="description"></div>
+
+                    <div class="product-price">
+                        <span class="price"> {{ product.price  | currency:'KES':'code':'1.0-0' }} </span>
+                        <span class="price-before-discount" *ngIf="false">Kshs. 800</span>
+                    </div>
+                    <!-- /.product-price -->
+
+                    <div class="cart clearfix animate-effect">
+                        <div class="action">
+                            <ul class="list-unstyled">
+                                <li class="add-cart-button btn-group">
+                                    <button (click)="productView(product)" class="btn btn-primary icon" type="button"
+                                            title="Quick view">
+                                        <i class="fa fa-search-plus"></i>
+                                    </button>
+                                    <button class="btn btn-primary cart-btn" type="button"> Quick View</button>
+                                </li>
+                                <!-- <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li> -->
+                            </ul>
+                        </div>
+                        <!-- /.action -->
+                    </div>
+
+                </div>
+                <div class="action">
+                    <div class="add-cart-button btn-group">
+                        <button class="btn btn-primary icon"
+                                [disabled]="outOfStock()"
+                                (click)="addToCart(product)"
+                                data-toggle="dropdown" type="button" style="width: 132px">
+                            <i class="fa fa-shopping-cart"></i>
+                            Add to cart
+                        </button>
+                        <!--   <button class="btn btn-black icon" type="button" (click)="addToCart(product)">
+                              <i class="fa fa-search-plus"></i>
+                          </button> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.cart -->
+        </div>
+        <!-- /.product -->
+
+    </div>
+    <!-- /.products -->
+    <!-- Modal -->
+    <bs-modal #modal [backdrop]="false">
+        <bs-modal-header [showDismiss]="true">
+            <h4 class="modal-title">{{ product.name }}</h4>
+        </bs-modal-header>
+        <bs-modal-body>
+            <button type="button" class="close" aria-label="Dismiss" (click)="modal.dismiss()"></button>
+            <div class="detail-block">
+                <div class="row fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+
+                    <div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
+                        <div class="product-item-holder size-big single-product-gallery small-gallery">
+                            <img src="{{ product.image_url }}" class="product-image">
+                        </div><!-- /.single-product-gallery -->
+                    </div><!-- /.gallery-holder -->
+                    <div class="col-sm-6 col-md-7 product-info-block">
+                        <div class="product-info">
+                            <h1 class="name">{{ product.name }}</h1>
+
+                            <div class="stock-container info-container m-t-10">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="stock-box">
+                                            <span class="label">Availability :</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="stock-box">
+                                            <span class="value">{{ outOfStock()? 'Out of stock' : 'In stock'}}</span>
+                                        </div>
+                                    </div>
+                                </div><!-- /.row -->
+                            </div><!-- /.stock-container -->
+
+                            <div class="description-container m-t-20" [innerHTML]="product.description">
+
+                            </div><!-- /.description-container -->
+
+                            <div class="price-container info-container m-t-20">
+                                <div class="row">
+
+
+                                    <div class="col-sm-6">
+                                        <div class="product-price">
+                                            <span class="price"> Kshs. {{ product.price | currency:'KES':'code':'1.0-0'}} </span>
+                                            <span class="price-before-discount" *ngIf="false">Kshs. 800</span>
+                                        </div>
+                                    </div>
+
+                                </div><!-- /.row -->
+                            </div><!-- /.price-container -->
+
+                            <div class="quantity-container info-container">
+                                <div class="row">
+
+                                    <div class="col-sm-7">
+                                        <button [disabled]="outOfStock()" type="button" class="btn btn-primary" (click)="addToCart(product)">
+                                            <i class="fa fa-shopping-cart inner-right-vs"></i>
+                                            ADD TO CART
+                                        </button>
+                                    </div>
+
+
+                                </div><!-- /.row -->
+                            </div><!-- /.quantity-container -->
+
+
+                        </div><!-- /.product-info -->
+                    </div><!-- /.col-sm-7 -->
+                </div><!-- /.row -->
+            </div>
+        </bs-modal-body>
+        <bs-modal-footer *ngIf="false" [showDefaultButtons]="false"></bs-modal-footer>
+    </bs-modal>
+
+</div>

@@ -1,0 +1,15 @@
+<div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs animated"
+     style="visibility: visible; animation-name: fadeInUp;">
+    <h3 class="section-title">Cart</h3>
+    <div class="products special-product">
+        <app-cart-item *ngFor="let item of items" [item]="item"></app-cart-item>
+    </div>
+    <div class="list-group">
+        <div class="list-group-item">
+            Sub Total:
+            <div class="pull-right">
+                <strong>{{ total | currency:'KES':'code':'1.0-0'}}</strong>
+            </div>
+        </div>
+    </div>
+</div>

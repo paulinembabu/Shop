@@ -1,0 +1,7 @@
+.nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.nav .dropdown:hover a {
+    color: #e68ab9;
+}

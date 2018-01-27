@@ -1,0 +1,18 @@
+.modal {
+    z-index: 999;
+}
+
+.product-image{
+    width: 100%;
+    height: auto;
+}
+
+.hot {
+    width: 100% !important;
+    opacity: 0.7;
+    background: #000000;
+}
+.tag {
+    border-radius: 0 !important;
+    margin-top:50%;
+}

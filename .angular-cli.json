@@ -1,0 +1,82 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "frontend"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "static/css/bootstrap.min.css",
+        "styles.css",
+        "static/css/blue.css",
+        "static/css/owl.carousel.css",
+        "static/css/owl.transitions.css",
+        "static/css/animate.min.css",
+        "static/css/bootstrap-select.min.css",
+        "static/css/font-awesome.css",
+        "static/css/lightbox.css"
+      ],
+      "scripts": [
+        "static/js/jquery-1.11.1.min.js",
+        "static/js/bootstrap.min.js",
+        "static/js/bootstrap-hover-dropdown.min.js",
+        "static/js/owl.carousel.min.js",
+        "static/js/echo.min.js",
+        "static/js/jquery.easing-1.3.min.js",
+        "static/js/jquery.rateit.min.js",
+        "static/js/bootstrap-select.min.js",
+        "static/js/wow.min.js",
+        "static/js/scripts.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "class": {
+      "spec": false
+    },
+    "component": {}
+  }
+}

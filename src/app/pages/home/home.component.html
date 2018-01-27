@@ -1,0 +1,395 @@
+<app-header></app-header>
+<div class="body-content outer-top-vs" id="top-banner-and-menu">
+    <div class="container-fluid">
+        <div class="row">
+            <app-slider></app-slider>
+        </div>
+
+        <div class="row" style="margin-top: 20px;">
+            <div class="container-fluid hidden-sm hidden-xs">
+                <div class="wide-banners wow fadeInUp outer-bottom-xs">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
+                            <div class="wide-banner cnt-strip">
+                                <div class="image">
+                                    <button><a href="http://girlstuff.co.ke/categories/Accessories-6"><img
+                                            class="img-responsive"
+                                            src="assets/images/banners/accessories-banner.jpeg" alt="">
+                                    </a>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.wide-banner -->
+                        </div>
+                        <!-- /.col -->
+
+                        <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
+                            <div class="wide-banner cnt-strip">
+                                <div class="image">
+                                    <button><a href="http://girlstuff.co.ke/categories/Cushions-37"><img
+                                            class="img-responsive"
+                                            src="assets/images/banners/cushions-banner.jpeg" alt="">
+                                    </a>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.wide-banner -->
+                        </div>
+
+                        <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
+                            <div class="wide-banner cnt-strip">
+                                <div class="image">
+                                    <button><a href="http://girlstuff.co.ke/categories/African-Dolls-32"><img
+                                            class="img-responsive"
+                                            src="assets/images/banners/dolls-banner.jpeg" alt=""></a>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.wide-banner -->
+                        </div>
+                        <!-- /.col -->
+
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 homebanner-holder"
+                 [ngClass]="{'col-md-9': itemCount>0, 'col-md-12': itemCount<=0}">
+
+                <div class="wide-banners wow fadeInUp outer-bottom-xs animated"
+                     style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="row">
+                        <div *ngFor="let topCategory of topCategories; let i = index">
+                            <div class="col-md-6 col-sm-6" *ngIf="i <=1">
+                                <div class="wide-banner cnt-strip">
+                                    <div class="image">
+                                        <img class="img-responsive"
+                                             src="" alt="">
+                                    </div>
+                                </div>
+                                <!-- /.wide-banner -->
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-5 col-sm-5" *ngIf="false">
+                            <div class="wide-banner cnt-strip">
+                                <div class="image">
+                                    <img class="img-responsive"
+                                         src="./assets/images/banners/home-banner1.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- /.wide-banner -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+
+                <section class="more-info-tab clearfix section featured-product wow fadeInUp animated"
+                         style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="more-info-tab clearfix ">
+                        <h3 class="section-title">Top products</h3>
+
+                        <div class="container-fluid category-list">
+                            <div class="category-product">
+                                <div class="row">
+                       <!--              <app-product-grid-item *ngFor="let product of topProducts"
+                                                           [product]="product"
+                                                           [resize]="true"></ --><!-- app-product-grid-item> -->
+                                                          <app-product-grid-item *ngFor="let product of topProducts"
+                                                           [product]="product"
+                                                           [resize]="itemCount>0"></app-product-grid-item>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="wide-banners wow fadeInUp outer-bottom-xs animated" *ngIf="false"
+                     style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="wide-banner cnt-strip">
+                                <div class="image">
+                                    <img class="img-responsive"
+                                         src="./assets/images/banners/home-banner.jpg" alt="">
+                                </div>
+                                <div class="strip strip-text">
+                                    <div class="strip-inner">
+                                        <h2 class="text-right">New Mens Fashion<br>
+                                            <span class="shopping-needs">Save up to 40% off</span></h2>
+                                    </div>
+                                </div>
+                                <div class="new-label">
+                                    <div class="text">NEW</div>
+                                </div>
+                                <!-- /.new-label -->
+                            </div>
+                            <!-- /.wide-banner -->
+                        </div>
+                        <!-- /.col -->
+
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+
+                <section class="section featured-product wow fadeInUp animated"
+                         style="visibility: visible; animation-name: fadeInUp;">
+                    <h3 class="section-title">Latest Products</h3>
+                    <div class="container-fluid category-list">
+                        <div class="category-product">
+                            <div class="row">
+               <!--                  <app-product-grid-item *ngFor="let product of bestSelling"
+
+                                                       [product]="product"
+                                                       resize="true"></app-product-grid-item> -->
+                                                       <app-product-grid-item *ngFor="let product of bestSelling"
+
+                                                       [product]="product"
+                                                       [resize]="itemCount>0"></app-product-grid-item>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 sidebar" *ngIf="itemCount>0">
+
+                <app-sidebar></app-sidebar>
+
+                <div *ngIf="false" class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs animated"
+                     style="visibility: visible; animation-name: fadeInUp;">
+                    <h3 class="section-title">hot deals</h3>
+                    <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss"
+                         style="opacity: 1; display: block;">
+                        <div class="owl-wrapper-outer">
+                            <div class="owl-wrapper"
+                                 style="width: 1026px; left: 0px; display: block; transition: all 0ms ease; transform: translate3d(0px, 0px, 0px);">
+                                <div class="owl-item" style="width: 171px;">
+                                    <div class="item">
+                                        <div class="products">
+                                            <div class="hot-deal-wrapper">
+                                                <div class="image"><img src="./assets/images/hot-deals/p1.jpg" alt="">
+                                                </div>
+                                                <div class="sale-offer-tag"><span>49%<br>
+                                                                                        off</span></div>
+                                                <div class="timing-wrapper">
+                                                    <div class="box-wrapper">
+                                                        <div class="date box"><span class="key">120</span> <span
+                                                                class="value">DAYS</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper">
+                                                        <div class="hour box"><span class="key">20</span> <span
+                                                                class="value">HRS</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper">
+                                                        <div class="minutes box"><span class="key">36</span> <span
+                                                                class="value">MINS</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper hidden-md">
+                                                        <div class="seconds box"><span class="key">60</span> <span
+                                                                class="value">SEC</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.hot-deal-wrapper -->
+
+                                            <div class="product-info text-left m-t-20">
+                                                <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                                                <div class="rating rateit-small rateit">
+                                                    <button id="rateit-reset-46" data-role="none" class="rateit-reset"
+                                                            aria-label="reset rating" aria-controls="rateit-range-46"
+                                                            style="display: none;"></button>
+                                                    <div id="rateit-range-46" class="rateit-range" tabindex="0"
+                                                         role="slider" aria-label="rating" aria-owns="rateit-reset-46"
+                                                         aria-valuemin="0" aria-valuemax="5" aria-valuenow="4"
+                                                         aria-readonly="true" style="width: 70px; height: 14px;">
+                                                        <div class="rateit-selected"
+                                                             style="height: 14px; width: 56px;"></div>
+                                                        <div class="rateit-hover" style="height:14px"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-price"><span class="price"> $600.00 </span> <span
+                                                        class="price-before-discount">$800.00</span></div>
+                                                <!-- /.product-price -->
+
+                                            </div>
+                                            <!-- /.product-info -->
+
+                                            <div class="cart clearfix animate-effect">
+                                                <div class="action">
+                                                    <div class="add-cart-button btn-group">
+                                                        <button class="btn btn-primary icon" data-toggle="dropdown"
+                                                                type="button"><i class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                        <button class="btn btn-primary cart-btn" type="button">Add to
+                                                            cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.action -->
+                                            </div>
+                                            <!-- /.cart -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 171px;">
+                                    <div class="item">
+                                        <div class="products">
+                                            <div class="hot-deal-wrapper">
+                                                <div class="image"><img src="./assets/images/hot-deals/p5.jpg" alt="">
+                                                </div>
+                                                <div class="sale-offer-tag"><span>35%<br>
+                                                off</span></div>
+                                                <div class="timing-wrapper">
+                                                    <div class="box-wrapper">
+                                                        <div class="date box"><span class="key">120</span> <span
+                                                                class="value">Days</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper">
+                                                        <div class="hour box"><span class="key">20</span> <span
+                                                                class="value">HRS</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper">
+                                                        <div class="minutes box"><span class="key">36</span> <span
+                                                                class="value">MINS</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper hidden-md">
+                                                        <div class="seconds box"><span class="key">60</span> <span
+                                                                class="value">SEC</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.hot-deal-wrapper -->
+
+                                            <div class="product-info text-left m-t-20">
+                                                <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                                                <div class="rating rateit-small rateit">
+                                                    <button id="rateit-reset-47" data-role="none" class="rateit-reset"
+                                                            aria-label="reset rating" aria-controls="rateit-range-47"
+                                                            style="display: none;"></button>
+                                                    <div id="rateit-range-47" class="rateit-range" tabindex="0"
+                                                         role="slider" aria-label="rating" aria-owns="rateit-reset-47"
+                                                         aria-valuemin="0" aria-valuemax="5" aria-valuenow="4"
+                                                         aria-readonly="true" style="width: 70px; height: 14px;">
+                                                        <div class="rateit-selected"
+                                                             style="height: 14px; width: 56px;"></div>
+                                                        <div class="rateit-hover" style="height:14px"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-price"><span class="price"> $600.00 </span> <span
+                                                        class="price-before-discount">$800.00</span></div>
+                                                <!-- /.product-price -->
+
+                                            </div>
+                                            <!-- /.product-info -->
+
+                                            <div class="cart clearfix animate-effect">
+                                                <div class="action">
+                                                    <div class="add-cart-button btn-group">
+                                                        <button class="btn btn-primary icon" data-toggle="dropdown"
+                                                                type="button"><i class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                        <button class="btn btn-primary cart-btn" type="button">Add to
+                                                            cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.action -->
+                                            </div>
+                                            <!-- /.cart -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 171px;">
+                                    <div class="item">
+                                        <div class="products">
+                                            <div class="hot-deal-wrapper">
+                                                <div class="image"><img src="./assets/images/hot-deals/p10.jpg" alt="">
+                                                </div>
+                                                <div class="sale-offer-tag"><span>35%<br>
+                                                            off</span></div>
+                                                <div class="timing-wrapper">
+                                                    <div class="box-wrapper">
+                                                        <div class="date box"><span class="key">120</span> <span
+                                                                class="value">Days</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper">
+                                                        <div class="hour box"><span class="key">20</span> <span
+                                                                class="value">HRS</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper">
+                                                        <div class="minutes box"><span class="key">36</span> <span
+                                                                class="value">MINS</span></div>
+                                                    </div>
+                                                    <div class="box-wrapper hidden-md">
+                                                        <div class="seconds box"><span class="key">60</span> <span
+                                                                class="value">SEC</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.hot-deal-wrapper -->
+
+                                            <div class="product-info text-left m-t-20">
+                                                <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                                                <div class="rating rateit-small rateit">
+                                                    <button id="rateit-reset-48" data-role="none" class="rateit-reset"
+                                                            aria-label="reset rating" aria-controls="rateit-range-48"
+                                                            style="display: none;"></button>
+                                                    <div id="rateit-range-48" class="rateit-range" tabindex="0"
+                                                         role="slider" aria-label="rating" aria-owns="rateit-reset-48"
+                                                         aria-valuemin="0" aria-valuemax="5" aria-valuenow="4"
+                                                         aria-readonly="true" style="width: 70px; height: 14px;">
+                                                        <div class="rateit-selected"
+                                                             style="height: 14px; width: 56px;"></div>
+                                                        <div class="rateit-hover" style="height:14px"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-price"><span class="price"> $600.00 </span> <span
+                                                        class="price-before-discount">$800.00</span></div>
+                                                <!-- /.product-price -->
+
+                                            </div>
+                                            <!-- /.product-info -->
+
+                                            <div class="cart clearfix animate-effect">
+                                                <div class="action">
+                                                    <div class="add-cart-button btn-group">
+                                                        <button class="btn btn-primary icon" data-toggle="dropdown"
+                                                                type="button"><i class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                        <button class="btn btn-primary cart-btn" type="button">Add to
+                                                            cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.action -->
+                                            </div>
+                                            <!-- /.cart -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="owl-controls clickable">
+                            <div class="owl-buttons">
+                                <div class="owl-prev"></div>
+                                <div class="owl-next"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.sidebar-widget -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
